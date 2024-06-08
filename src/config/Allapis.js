@@ -7,5 +7,7 @@ export const AllApis={
     payment_method:"payment/create",
     forgetpassword_mail:"auth/email-send/forget-password",
     change_password:"auth/change-password",
-    contact_api:"contact/create"
+    contact_api:"contact/create",
+    get_user_api:"auth/get"
+
 }

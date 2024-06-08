@@ -6,10 +6,10 @@ export async function loginService(datas){
 
     try {
         const response=await instanceBaseurl.post(`${AllApis?.login_api}`,datas);
-        const {status,message,data}=response?.data;
+        const {status,message,data,token}=response?.data;
         if(status)
             {
-                return {message:message,status:status,data:data};
+                return {message:message,status:status,data:data,token:token};
             }
     } catch (error) {
             return {message:error?.response?.data?.message,status:error?.status};
@@ -67,14 +67,33 @@ export async function forgetMail(data){
 
 
 
-export async function ChangePasswordservice(data,config){
+export async function ChangePasswordservice(data){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.change_password}`,data,config);
+        const response=await instanceBaseurl.post(`${AllApis?.change_password}`);
         const {status,message}=response?.data;
         if(status)
             {
                 return {message:message,status:status};
+            }
+    } catch (error) {
+
+            return {message:error?.response?.data?.message,status:error?.status};
+        
+    }
+}
+
+// get profile image
+
+
+export async function getProfileUserData(){
+
+    try {
+        const response=await instanceBaseurl.get(`${AllApis?.get_user_api}`);
+        const {status,message,data}=response?.data;
+        if(status)
+            {
+                return {message:message,status:status,data:data};
             }
     } catch (error) {
 

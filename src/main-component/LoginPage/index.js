@@ -52,9 +52,11 @@ const LoginPage = (props) => {
                     UserCommanName:value.email,
                     password:value.password,
                 }
-                const {status,message}=await loginService(data);
+                const {status,message,token}=await loginService(data);
                 if(status)
                     {
+
+                        localStorage.setItem("tr_token",JSON.stringify(token));
                         ToastSuccess(message);
                         setTimeout(() => {
                         push("/home");
