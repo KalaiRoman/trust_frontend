@@ -5,6 +5,8 @@ function TokenCheck() {
 
     const [userdata,setUserData]=useState({});
     const token=localStorage.getItem("tr_token");
+    const pathCheck=localStorage.getItem("tr_path");
+
     const getUser=async()=>{
         try {
             const {status,data,message}=await getProfileUserData();
@@ -22,9 +24,14 @@ function TokenCheck() {
     }
 
     useEffect(()=>{
-        getUser();
+
+        if(token)
+            {
+                getUser();
+
+            }
     },[token]);
-  return {token,userdata,removeToken}
+  return {token,userdata,removeToken,pathCheck}
 }
 
 export default TokenCheck

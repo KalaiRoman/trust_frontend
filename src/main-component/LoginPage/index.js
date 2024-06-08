@@ -11,11 +11,14 @@ import {Link, useNavigate} from "react-router-dom";
 import './style.scss';
 import { loginService } from '../../services/auth_services/auth_services';
 import { ToastError, ToastSuccess } from './../../config/ToastModalMessage';
+import TokenCheck from './../../middleware/TokenCheck';
 
 
 
 const LoginPage = (props) => {
 
+    const {pathCheck}=TokenCheck();
+console.log(pathCheck,"ka")
     const push = useNavigate()
 
     const [value, setValue] = useState({
@@ -58,10 +61,18 @@ const LoginPage = (props) => {
 
                         localStorage.setItem("tr_token",JSON.stringify(token));
                         ToastSuccess(message);
+
+                        if(pathCheck)
+                            {
+                                setTimeout(() => {
+                                    push(pathCheck);
+                                    }, 1000);
+                            }
+                      else{
                         setTimeout(() => {
-                        push("/home");
-    
-                        }, 1000);
+                            push("/home");
+                            }, 1000);
+                      }
 
                         setValue({
                             email: '',

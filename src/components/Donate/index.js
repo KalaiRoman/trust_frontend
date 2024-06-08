@@ -8,9 +8,12 @@ import ModalPopupaddress from './ModalPopupaddress';
 import { getAllAddress } from '../../services/address_services/address_services';
 import { ToastError, ToastSuccess } from '../../config/ToastModalMessage';
 import { CreatePayment } from '../../services/payment_services/payment_services';
+import TokenCheck from '../../middleware/TokenCheck';
 
 const Donate = (props) => {
     const [show, setShow] = useState(false);
+
+    const {token}=TokenCheck();
 
     const [amount,setAmount]=useState(0);
     const [addressid,setAddressid]=useState("");
@@ -125,6 +128,14 @@ const Donate = (props) => {
       
     }
 
+    const LoginCheck=async()=>{
+        try {
+            window.location.assign("/login");
+            localStorage.setItem("tr_path",window.location.pathname);
+        } catch (error) {
+            
+        }
+    }
     return (
         <div className="wpo-donation-page-area section-padding">
             <div className="container">
@@ -225,7 +236,13 @@ const Donate = (props) => {
                                 </div>
                             </div>
                             <div className="submit-area mt-4">
-                                <button type="submit" className="theme-btn submit-btn" onClick={PaymentPlans}>Donate Now</button>
+
+{token?<>
+    <button type="submit" className="theme-btn submit-btn" onClick={PaymentPlans}>Donate Now</button>
+</>:<>
+<button type="submit" className="theme-btn submit-btn" onClick={LoginCheck}>Donate Now</button>
+</>}
+                                
                             </div>
                         </form> 
                     </div>
