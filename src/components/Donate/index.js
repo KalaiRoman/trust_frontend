@@ -9,23 +9,20 @@ import { getAllAddress } from '../../services/address_services/address_services'
 import { ToastError, ToastSuccess } from '../../config/ToastModalMessage';
 import { CreatePayment } from '../../services/payment_services/payment_services';
 import TokenCheck from '../../middleware/TokenCheck';
-
+import './dontae.css';
 const Donate = (props) => {
     const [show, setShow] = useState(false);
-
     const {token}=TokenCheck();
-
     const [amount,setAmount]=useState(0);
     const [addressid,setAddressid]=useState("");
+    const [addressid1,setAddressid1]=useState("");
     const [payment_type,setPaymentType]=useState("");
-
-
-
     const [addresss,setAddress]=useState([]);
     const [loading, setLoading] = useState(false);
-
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = (id) => {setShow(true)
+        setAddressid1(id)
+    };
     const SubmitHandler = (e) => {
         e.preventDefault();
     }
@@ -81,7 +78,6 @@ const Donate = (props) => {
                     paymentMethod: payment_type
                 };
 
-                console.log(payment_values,'payment_values')
                 setLoading(true);
                 CreatePayment(payment_values)
                     .then((res) => {
@@ -93,8 +89,8 @@ const Donate = (props) => {
                             currency: 'INR',
                             amount: data.amount,
                             order_id: data.order_id,
-                            name: "Kalai-Ecommerce",
-                            description: "Paying For Subscription In Product Lists",
+                            name: "Support-Personal-Trust",
+                            description: "Can You Please Support Every Month or Day in Trust Pay Amonut",
                             image: "profileimage",
                             handler: async function (data) {
                                 const update_userpayment = {
@@ -167,7 +163,10 @@ const Donate = (props) => {
                                         <button
                                             className="theme-btn"
                                             type="button"
-                                            onClick={handleShow}
+                                            onClick={()=>{handleShow()
+
+                                                setAddressid1("");
+                                            }}
                                         >
                                             Add Address +
                                         </button>
@@ -176,14 +175,15 @@ const Donate = (props) => {
                                 <div>
                                     <ModalPopupaddress
                                         handleClose={handleClose}
-                                        handleShow={handleShow}
                                         show={show}
+                                        getAddress={getAddress}
+                                        id={addressid1}
                                     />
                                 </div>
                                 <div>
                                     {addresss && addresss?.map((item,index)=>{
                                         return(
-                                            <div className='card p-3 rounded cursor-pointer' onClick={()=>setAddressid(item?._id)}>
+                                            <div className={`${addressid==item?._id?"active-card":"card"} p-3 rounded cursor-pointer`} onClick={()=>setAddressid(item?._id)} key={index}>
                                                 <div>
                                                     {item?.username}
                                                 </div>
@@ -192,6 +192,9 @@ const Donate = (props) => {
                                                 </div>
                                                 <div>
                                                     {item?.address}
+                                                </div>
+                                                <div className='edit' onClick={()=>handleShow(item?._id)}>
+                                                <i class="fa-regular fa-pen-to-square"></i>
                                                 </div>
                                             </div>
                                         )

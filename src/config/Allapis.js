@@ -8,6 +8,10 @@ export const AllApis={
     forgetpassword_mail:"auth/email-send/forget-password",
     change_password:"auth/change-password",
     contact_api:"contact/create",
-    get_user_api:"auth/get"
+    get_user_api:"auth/get",
+    subscribe_api:"subscribe/create",
+    address_single:"address/single",
+    address_update:"address/update"
+
 
 }

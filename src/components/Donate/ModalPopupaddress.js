@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { ToastError, ToastSuccess } from '../../config/ToastModalMessage';
-import { createAddressService } from '../../services/address_services/address_services';
+import { createAddressService, singleAddress, updateAddress } from '../../services/address_services/address_services';
 
-function ModalPopupaddress({ show, handleClose }) {
+function ModalPopupaddress({ show, handleClose,getAddress,id }) {
   const [users, setUsers] = useState({
     username: "",
     contactno: "",
@@ -36,6 +36,7 @@ function ModalPopupaddress({ show, handleClose }) {
           {
             ToastSuccess("Created Address");
             handleClose();
+            getAddress();
           }
       } else {
         ToastError("Please Enter Valid Mobile No");
@@ -45,6 +46,64 @@ function ModalPopupaddress({ show, handleClose }) {
     }
   };
 
+  const getSingleAddress=async()=>{
+    try {
+      if(id)
+        {
+          const {status,data}=await singleAddress(id);
+          if(status)
+            {
+              setUsers(data);
+            }
+        }
+    } catch (error) {
+    
+    }
+  }
+
+  const handleUpdate=async(e)=>{
+    e.preventDefault();
+
+    if (username && contactno && alternateno && address) {
+      const contactNumberCheck = /^\d{10}$/;
+
+      if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
+        const data = {
+          username,
+          contactno,
+          alternateno,
+          address,
+        };
+
+        const {status}=await updateAddress(id,data);
+        if(status)
+          {
+            ToastSuccess("Updated Address");
+            handleClose();
+            getAddress();
+          }
+      } else {
+        ToastError("Please Enter Valid Mobile No");
+      }
+    } else {
+      ToastError("Please Enter All Fields");
+    }
+  }
+
+
+  useEffect(()=>{
+    if(id)
+      {
+        getSingleAddress();
+
+      }
+      else{
+        setUsers({  username: "",
+          contactno: "",
+          alternateno: "",
+          address: "",});
+      }
+  },[id])
   return (
     <div>
       <Modal
@@ -113,7 +172,7 @@ function ModalPopupaddress({ show, handleClose }) {
             </div>
 
             <div className='mt-2 mb-4'>
-              <button className='theme-btn' onClick={handleSubmit}>Create Address</button>
+              <button className='theme-btn' onClick={id?handleUpdate:handleSubmit}>{id?"Update Address":"Create Address"}</button>
             </div>
           </div>
         </Modal.Body>
