@@ -102,3 +102,25 @@ export async function getProfileUserData(){
         
     }
 }
+
+
+// update profile
+
+// get profile image
+
+
+export async function updateProfileservice(datas){
+
+    try {
+        const response=await instanceBaseurl.post(`${AllApis?.profile_update}`,datas);
+        const {status,message,data}=response?.data;
+        if(status)
+            {
+                return {message:message,status:status,data:data};
+            }
+    } catch (error) {
+
+            return {message:error?.response?.data?.message,status:error?.status};
+        
+    }
+}

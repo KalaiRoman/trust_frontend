@@ -27,7 +27,7 @@ const HeaderTopbar = () => {
                         <div className="contact-info">
                             <ul>
                                 <li><span onClick={handleShow} style={{cursor:"pointer"}}>Logout</span></li>
-                                <li><Link to="/login">Profile</Link></li>
+                                <li><Link to="/profile">Profile</Link></li>
                                 <li><Link className="theme-btn" to="/donate">Donate Now</Link></li>
                             </ul>
                             

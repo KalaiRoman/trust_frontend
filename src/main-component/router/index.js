@@ -23,6 +23,7 @@ import SignUpPage from '../SignUpPage'
 import ForgotPassword from '../ForgotPassword'
 import Otp from '../otp/Otp';
 import Changepassword from '../changepassword/Changepassword';
+import Profile from '../../components/profile/Profile';
 
 
 const AllRoute = () => {
@@ -55,6 +56,8 @@ const AllRoute = () => {
           <Route path='forgot-password' element={<ForgotPassword />} />
           <Route path='otp' element={<Otp />} />
           <Route path='change-password' element={<Changepassword />} />
+          <Route path='profile' element={<Profile />} />
+
 
 
           <Route path='*' element={<ErrorPage />} />

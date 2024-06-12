@@ -11,7 +11,7 @@ export const AllApis={
     get_user_api:"auth/get",
     subscribe_api:"subscribe/create",
     address_single:"address/single",
-    address_update:"address/update"
-
-
+    address_update:"address/update",
+    profile_update:"auth/update",
+    allpayments_api:"payment/get",
 }
