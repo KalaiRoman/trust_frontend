@@ -5,10 +5,13 @@ import './profile.css';
 import TokenCheck from '../../middleware/TokenCheck';
 import Modal from 'react-bootstrap/Modal';
 import { ToastSuccess } from './../../config/ToastModalMessage';
-import { updateProfileservice } from '../../services/auth_services/auth_services';
+import { getProfileUserData, updateProfileservice } from '../../services/auth_services/auth_services';
+import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
 function Profile() {
   const {token,userdata,removeToken,userdataPayment}=TokenCheck();
 
+  const history=useNavigate();
   console.log(userdataPayment,'userdataPayment')
   const [activetab,setActiveTab]=useState("profile");
   const [user,setUser]=useState({
@@ -45,7 +48,7 @@ setUser(userdata);
     try {
       const datas={
         description:description,
-        avatar:selectImage
+        avatar:selectimageurl?selectimageurl:selectImage
       }
       const response=await updateProfileservice(datas)
       if(response)
@@ -53,6 +56,7 @@ setUser(userdata);
 ToastSuccess("Profile Updated Successfully");
 setTimeout(() => {
   setLoading(false);
+  getProfileUserData();
 handleClose3();
 }, 700);
 
@@ -134,8 +138,24 @@ handleClose3();
       
       {userdataPayment?.map((item,index)=>{
         return(
-          <div>
-            {index+1}
+          <div className='card p-4'>
+            
+            <div className='d-flex justify-content-between align-items-center'>
+              <div>
+                <div>
+                  {item?.orderId}
+                </div>
+<div className='mt-2 fs-3 fw-bold'>
+₹{item?.amount}
+</div>
+<div className='mt-2'>
+  {moment(item?.createdAt).format('LLL')}
+</div>
+              </div>
+              <div>
+                <button className='theme-btn' onClick={()=>history(`/invoice/${item?._id}`)}>Download Invoice</button>
+              </div>
+            </div>
           </div>
         )
       })}

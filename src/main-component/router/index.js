@@ -24,6 +24,7 @@ import ForgotPassword from '../ForgotPassword'
 import Otp from '../otp/Otp';
 import Changepassword from '../changepassword/Changepassword';
 import Profile from '../../components/profile/Profile';
+import Invoice from '../../components/profile/compoents/invoice/Invoice';
 
 
 const AllRoute = () => {
@@ -57,6 +58,8 @@ const AllRoute = () => {
           <Route path='otp' element={<Otp />} />
           <Route path='change-password' element={<Changepassword />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='invoice/:id' element={< Invoice/>} />
+
 
 
 
