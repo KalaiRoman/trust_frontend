@@ -15,6 +15,7 @@ const Newsletter = (props) => {
         {
 
         await Subscribe(subscribe);
+        setSubscribes("");
 
         }
         else{

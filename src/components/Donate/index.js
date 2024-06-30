@@ -13,7 +13,7 @@ import './dontae.css';
 const Donate = (props) => {
     const [show, setShow] = useState(false);
     const {token}=TokenCheck();
-    const [amount,setAmount]=useState(0);
+    const [amount,setAmount]=useState(null);
     const [addressid,setAddressid]=useState("");
     const [addressid1,setAddressid1]=useState("");
     const [payment_type,setPaymentType]=useState("");
@@ -103,7 +103,7 @@ const Donate = (props) => {
                                 ToastSuccess("Payment Paid Successfully");
                                 setTimeout(() => {
                                     setLoading(false)
-        
+                                    window.location.assign("/profile");
                                 }, 800);
                             },
                             modal: {

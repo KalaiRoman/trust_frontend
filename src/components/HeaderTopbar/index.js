@@ -16,8 +16,8 @@ const HeaderTopbar = () => {
                     <div className="col col-md-6 col-sm-12 col-12">
                         <div className="contact-intro">
                             <ul>
-                                <li><i className="fi flaticon-call"></i>+91{userdata?.mobileNo}</li>
-                                <li><i className="fi flaticon-envelope"></i>{userdata?.email}</li>
+                                {userdata?.mobileNo?<li><i className="fi flaticon-call"></i>+91{userdata?.mobileNo}</li>:<li></li>}
+                                {userdata?.email?<li><i className="fi flaticon-envelope"></i>{userdata?.email}</li>:<li></li>}
                             </ul>
                         </div>
                     </div>
