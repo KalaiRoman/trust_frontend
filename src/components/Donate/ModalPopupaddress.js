@@ -26,7 +26,7 @@ function ModalPopupaddress({ show, handleClose, getAddress, id,token,LoginCheck 
       if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
         const data = { username, contactno, alternateno, address };
 
-        console.log(data,"data")
+        console.log(data,"")
 
         try {
           const { status } = await createAddressService(data);

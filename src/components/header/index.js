@@ -99,7 +99,7 @@ const Header = () => {
                                             </div>
                                             <div className="mini-cart-item-des">
                                                 <Link to="/home">Hoodi with zipper</Link>
-                                                <span className="mini-cart-item-price">₹20.15</span>
+                                                <span className="mini-cart-item-price">$20.15</span>
                                                 <span className="mini-cart-item-quantity">x 1</span>
                                             </div>
                                         </div>
@@ -109,13 +109,13 @@ const Header = () => {
                                             </div>
                                             <div className="mini-cart-item-des">
                                                 <Link to="/home">Ninja T-shirt</Link>
-                                                <span className="mini-cart-item-price">₹13.25</span>
+                                                <span className="mini-cart-item-price">$13.25</span>
                                                 <span className="mini-cart-item-quantity">x 2</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="mini-cart-action clearfix">
-                                        <span className="mini-checkout-price">₹215.14</span>
+                                        <span className="mini-checkout-price">$215.14</span>
                                         <Link to="/home" className="view-cart-btn theme-btn">View Cart</Link>
                                     </div>
                                 </div> */}

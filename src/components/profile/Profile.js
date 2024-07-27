@@ -153,7 +153,7 @@ handleClose3();
 </div>
               </div>
               <div>
-                <button className='theme-btn' onClick={()=>history(`/invoice/₹{item?._id}`)}>Download Invoice</button>
+                <button className='theme-btn' onClick={()=>history(`/invoice/${item?._id}`)}>Download Invoice</button>
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@ Update Profile Image
           
          {imageUrls?.map((item,index)=>{
           return(
-            <div className={`₹{selectimageurl==item?"user-image-lists-active":"user-image-lists"} mt-3 mb-2`} key={index} onClick={()=>setSelectImageurl(item)}>
+            <div className={`${selectimageurl==item?"user-image-lists-active":"user-image-lists"} mt-3 mb-2`} key={index} onClick={()=>setSelectImageurl(item)}>
               <img src={item} alt="no image" className='user-image-lists'
               onClick={()=>setSelectImage(item)}
               />

@@ -9,7 +9,7 @@ const WorldSection = (props) => {
         window.scrollTo(10, 0);
      }
     return(
-        <div className={`wpo-world-area ₹{props.worldclass}`}>
+        <div className={`wpo-world-area ${props.worldclass}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">

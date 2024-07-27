@@ -31,7 +31,7 @@ const ForgotPassword = (props) => {
         if(email?.length>0)
             {
 
-                const emailCheck=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}₹/;
+                const emailCheck=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
                 if(emailCheck.test(email))
                     {
