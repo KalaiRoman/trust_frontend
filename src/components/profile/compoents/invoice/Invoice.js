@@ -44,7 +44,7 @@ function Invoice() {
         </table>
         <div class="invoice-total mb-5">
             <p>Subtotal: ₹{SinglePayment?.amount}</p>
-            {/* <p>Tax (8%): $0.52</p> */}
+            {/* <p>Tax (8%): ₹0.52</p> */}
             <p>Total: ₹ {SinglePayment?.amount}</p>
         </div>
 

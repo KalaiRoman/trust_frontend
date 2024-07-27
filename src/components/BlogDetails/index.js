@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import BlogSidebar from '../BlogSidebar'
 import './style.css'
-import blog1 from '../../images/blog/img-4.jpg'
+import blog1 from '../../images/trustimages/blog1.jpg'
 import blog2 from '../../images/blog-details/author.jpg'
 import blog3 from '../../images/blog-details/comments-author/img-1.jpg'
 import blog4 from '../../images/blog-details/comments-author/img-2.jpg'

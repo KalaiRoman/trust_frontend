@@ -35,7 +35,7 @@ const SignUpPage = (props) => {
                         if(value?.email?.length>0 || value?.userName?.length>0 || value?.password?.length>0 || value?.confirm_password?.length>0 || value?.mobileNo?.length>0)
             {
 
-                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}₹/;
                 const email = value.email;
                 if (regex.test(email)) {
 

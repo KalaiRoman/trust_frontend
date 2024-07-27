@@ -26,7 +26,7 @@ const Contactpage = () => {
                             <div className="row">
                                 <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div className="info-item">
-                                        <h2>25 North Street,Dubai</h2>
+                                        <h5>443/7, Laxmi complex, MD 599, Madarpakkam sub post office, pallavada Gummidipoondi, Madarpakkam, Tiruvallur, Tamil Nadu, 601202</h5>
                                         <div className="info-wrap">
                                             <div className="info-icon">
                                                 <i className="ti-world"></i>
@@ -39,8 +39,8 @@ const Contactpage = () => {
                                 </div>
                                 <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div className="info-item">
-                                        <h2>info@nasarna.com</h2>
-                                        <div className="info-wrap">
+                                        <h5>suportpureheart@gmail.com</h5>
+                                        <div className="info-wrap mt-2">
                                             <div className="info-icon-2">
                                                 <i className="fi flaticon-envelope"></i>
                                             </div>
@@ -52,7 +52,7 @@ const Contactpage = () => {
                                 </div>
                                 <div className="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div className="info-item">
-                                        <h2>+91 256-987-239</h2>
+                                        <h2>+91 9345232730</h2>
                                         <div className="info-wrap">
                                             <div className="info-icon-3">
                                                 <i className="ti-headphone-alt"></i>

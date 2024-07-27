@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 import BlogSidebar from '../BlogSidebar'
 import VideoModal from '../../components/ModalVideo'
 import './style.css'
-import blog1 from '../../images/blog/img-4.jpg'
-import blog2 from '../../images/blog/img-5.jpg'
-import blog3 from '../../images/blog/img-6.jpg'
-import blog4 from '../../images/blog/admin.jpg'
+import blog1 from '../../images/trustimages/blog1.jpg'
+import blog2 from '../../images/trustimages/blog1.jpg'
+import blog3 from '../../images/trustimages/blog1.jpg'
+import blog4 from '../../images/trustimages/blog1.jpg'
 
 
 const BlogList = () => {

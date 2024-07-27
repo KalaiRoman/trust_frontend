@@ -79,9 +79,9 @@ const Footer = (props) =>{
                             <p>online store with lots of cool and exclusive wpo-features</p>
                             <div className="contact-ft">
                                 <ul>
-                                    <li><i className="fi flaticon-pin"></i>28 Street, New York City, USA</li>
-                                    <li><i className="fi flaticon-call"></i>+000123456789</li>
-                                    <li><i className="fi flaticon-envelope"></i>nasarna@gmail.com</li>
+                                    <li><i className="fi flaticon-pin"></i>443/7, Laxmi complex, MD 599, Madarpakkam sub post office, pallavada Gummidipoondi, Madarpakkam, Tiruvallur, Tamil Nadu, 601202</li>
+                                    <li><i className="fi flaticon-call"></i>+91 9345232730</li>
+                                    <li><i className="fi flaticon-envelope"></i>suportpureheart@gmail.com</li>
                                 </ul>
                             </div>
                         </div>

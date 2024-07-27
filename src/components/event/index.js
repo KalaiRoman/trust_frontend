@@ -1,7 +1,7 @@
 import React from 'react'
-import pr1 from '../../images/event/img-1.jpg'
-import pr2 from '../../images/event/img-2.jpg'
-import pr3 from '../../images/event/img-3.jpg'
+import pr1 from '../../images/trustimages/e1.jpg'
+import pr2 from '../../images/trustimages/e2.jpg'
+import pr3 from '../../images/trustimages/e3.jpg'
 import {Link} from 'react-router-dom'
 
 import './style.css'

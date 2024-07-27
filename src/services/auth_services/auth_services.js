@@ -5,7 +5,7 @@ import instanceBaseurl from './../../config/BaseUrl';
 export async function loginService(datas){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.login_api}`,datas);
+        const response=await instanceBaseurl.post(`₹{AllApis?.login_api}`,datas);
         const {status,message,data,token}=response?.data;
         if(status)
             {
@@ -20,7 +20,7 @@ export async function loginService(datas){
 export async function registerService(datas){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.register_api}`,datas);
+        const response=await instanceBaseurl.post(`₹{AllApis?.register_api}`,datas);
         const {status,message,data}=response?.data;
         if(status)
             {
@@ -35,7 +35,7 @@ export async function registerService(datas){
 export async function otpService(data){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.otp_api}`,data);
+        const response=await instanceBaseurl.post(`₹{AllApis?.otp_api}`,data);
         const {status,message,token}=response?.data;
         if(status)
             {
@@ -51,7 +51,7 @@ export async function otpService(data){
 export async function forgetMail(data){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.forgetpassword_mail}`,data);
+        const response=await instanceBaseurl.post(`₹{AllApis?.forgetpassword_mail}`,data);
         const {status,message}=response?.data;
         if(status)
             {
@@ -70,7 +70,7 @@ export async function forgetMail(data){
 export async function ChangePasswordservice(data){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.change_password}`);
+        const response=await instanceBaseurl.post(`₹{AllApis?.change_password}`);
         const {status,message}=response?.data;
         if(status)
             {
@@ -89,7 +89,7 @@ export async function ChangePasswordservice(data){
 export async function getProfileUserData(){
 
     try {
-        const response=await instanceBaseurl.get(`${AllApis?.get_user_api}`);
+        const response=await instanceBaseurl.get(`₹{AllApis?.get_user_api}`);
         const {status,message,data}=response?.data;
         if(status)
             {
@@ -112,7 +112,7 @@ export async function getProfileUserData(){
 export async function updateProfileservice(datas){
 
     try {
-        const response=await instanceBaseurl.post(`${AllApis?.profile_update}`,datas);
+        const response=await instanceBaseurl.post(`₹{AllApis?.profile_update}`,datas);
         const {status,message,data}=response?.data;
         if(status)
             {

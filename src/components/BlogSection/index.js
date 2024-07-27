@@ -1,7 +1,7 @@
 import React from 'react'
-import blog1 from '../../images/blog/img-1.jpg'
-import blog2 from '../../images/blog/img-2.jpg'
-import blog3 from '../../images/blog/img-3.jpg'
+import blog2 from '../../images/trustimages/h2.png'
+import blog3 from '../../images/trustimages/h3.png'
+import blog1 from '../../images/trustimages/h1.png'
 import {Link} from 'react-router-dom'
 
 import './style.css'

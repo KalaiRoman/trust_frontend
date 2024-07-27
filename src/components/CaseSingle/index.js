@@ -85,8 +85,8 @@ const CaseSingle = (props) => {
                                                         </div>
                                                     </div>
                                                     <ul>
-                                                        <li><span>Raised:</span> $7,000.00</li>
-                                                        <li><span>Goal:</span> $8,000.00</li>
+                                                        <li><span>Raised:</span> ₹7,000.00</li>
+                                                        <li><span>Goal:</span> ₹8,000.00</li>
                                                         <li><span>Donar:</span> 380</li>
                                                     </ul>
                                                     <div className="case-b-text">

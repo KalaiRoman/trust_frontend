@@ -3,7 +3,7 @@ import './style.css'
 
 const CounterSection = (props) => {
     return(
-        <div className={`wpo-counter-area ${props.countclass}`}>
+        <div className={`wpo-counter-area ₹{props.countclass}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

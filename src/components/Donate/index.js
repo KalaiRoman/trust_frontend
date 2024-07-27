@@ -183,7 +183,7 @@ const Donate = (props) => {
                                 <div>
                                     {addresss && addresss?.map((item,index)=>{
                                         return(
-                                            <div className={`${addressid==item?._id?"active-card":"card"} p-3 rounded cursor-pointer`} onClick={()=>setAddressid(item?._id)} key={index}>
+                                            <div className={`₹{addressid==item?._id?"active-card":"card"} p-3 rounded cursor-pointer`} onClick={()=>setAddressid(item?._id)} key={index}>
                                                 <div>
                                                     {item?.username}
                                                 </div>

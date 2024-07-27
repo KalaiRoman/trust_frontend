@@ -1,10 +1,10 @@
 import React from 'react'
-import pr1 from '../../images/event/img-1.jpg'
-import pr2 from '../../images/event/img-2.jpg'
-import pr3 from '../../images/event/img-3.jpg'
-import pr4 from '../../images/event/img-4.jpg'
-import pr5 from '../../images/event/img-5.jpg'
-import pr6 from '../../images/event/img-6.jpg'
+import pr1 from '../../images/trustimages/e1.jpg'
+import pr2 from '../../images/trustimages/e2.jpg'
+import pr3 from '../../images/trustimages/e3.jpg'
+import pr4 from '../../images/trustimages/e4.jpg'
+import pr5 from '../../images/trustimages/e5.jpg'
+import pr6 from '../../images/trustimages/e6.jpg'
 import {Link} from 'react-router-dom'
 
 

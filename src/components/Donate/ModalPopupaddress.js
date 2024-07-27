@@ -21,7 +21,7 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
     e.preventDefault();
 
     if (username && contactno && alternateno && address) {
-      const contactNumberCheck = /^\d{10}$/;
+      const contactNumberCheck = /^\d{10}₹/;
 
       if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
         const data = {
@@ -65,7 +65,7 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
     e.preventDefault();
 
     if (username && contactno && alternateno && address) {
-      const contactNumberCheck = /^\d{10}$/;
+      const contactNumberCheck = /^\d{10}₹/;
 
       if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
         const data = {

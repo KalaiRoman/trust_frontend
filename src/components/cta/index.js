@@ -7,7 +7,7 @@ const CtaSection = (props) => {
         window.scrollTo(10, 0);
      }
     return(
-        <div className={`wpo-cta-area ${props.ctaclass}`}>
+        <div className={`wpo-cta-area ₹{props.ctaclass}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

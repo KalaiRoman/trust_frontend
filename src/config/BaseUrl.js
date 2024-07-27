@@ -9,7 +9,7 @@ instanceBaseurl.interceptors.request.use(
     const token = localStorage.getItem("tr_token");
     
     if (token) {
-      config.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+      config.headers.Authorization = `Bearer ₹{JSON.parse(token)}`;
     }
     
     return config;

@@ -2,13 +2,12 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
-import cs1 from '../../images/case/img-1.png'
-import cs2 from '../../images/case/img-2.png'
-import cs3 from '../../images/case/img-3.png'
-import cs4 from '../../images/case/img-4.png'
-import cs5 from '../../images/case/img-5.png'
-import cs6 from '../../images/case/img-6.png'
-
+import cs1 from '../../images/trustimages/h1.png'
+import cs2 from '../../images/trustimages/h2.png'
+import cs3 from '../../images/trustimages/h3.png'
+import cs4 from '../../images/trustimages/e2.jpg'
+import cs5 from '../../images/trustimages/e3.jpg'
+import cs6 from '../../images/trustimages/e1.jpg'
 import './style.css'
 
 class Casesection extends Component {
@@ -47,8 +46,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">
@@ -78,8 +77,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">
@@ -109,8 +108,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">
@@ -140,8 +139,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">
@@ -171,8 +170,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">
@@ -202,8 +201,8 @@ class Casesection extends Component {
                                             </div>
                                         </div>
                                         <ul>
-                                            <li><span>Raised:</span> $7,000.00</li>
-                                            <li><span>Goal:</span> $8,000.00</li>
+                                            <li><span>Raised:</span> ₹7,000.00</li>
+                                            <li><span>Goal:</span> ₹8,000.00</li>
                                         </ul>
                                     </div>
                                     <div className="case-btn">

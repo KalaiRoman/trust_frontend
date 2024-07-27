@@ -5,9 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Link} from 'react-router-dom'
 
-import cs1 from '../../images/case/img-1.png'
-import cs2 from '../../images/case/img-2.png'
-import cs3 from '../../images/case/img-3.png'
+import cs1 from '../../images/trustimages/h1.png'
+import cs2 from '../../images/trustimages/h2.png'
+import cs3 from '../../images/trustimages/h3.png'
 
 import './style.css'
 
@@ -92,8 +92,8 @@ class CaseSlide extends Component {
                                                 </div>
                                             </div>
                                             <ul>
-                                                <li><span>Raised:</span> $7,000.00</li>
-                                                <li><span>Goal:</span> $8,000.00</li>
+                                                <li><span>Raised:</span> ₹7,000.00</li>
+                                                <li><span>Goal:</span> ₹8,000.00</li>
                                             </ul>
                                         </div>
                                         <div className="case-btn">
@@ -123,8 +123,8 @@ class CaseSlide extends Component {
                                                 </div>
                                             </div>
                                             <ul>
-                                                <li><span>Raised:</span> $7,000.00</li>
-                                                <li><span>Goal:</span> $8,000.00</li>
+                                                <li><span>Raised:</span> ₹7,000.00</li>
+                                                <li><span>Goal:</span> ₹8,000.00</li>
                                             </ul>
                                         </div>
                                         <div className="case-btn">
@@ -154,8 +154,8 @@ class CaseSlide extends Component {
                                                 </div>
                                             </div>
                                             <ul>
-                                                <li><span>Raised:</span> $7,000.00</li>
-                                                <li><span>Goal:</span> $8,000.00</li>
+                                                <li><span>Raised:</span> ₹7,000.00</li>
+                                                <li><span>Goal:</span> ₹8,000.00</li>
                                             </ul>
                                         </div>
                                         <div className="case-btn">
@@ -185,8 +185,8 @@ class CaseSlide extends Component {
                                                 </div>
                                             </div>
                                             <ul>
-                                                <li><span>Raised:</span> $7,000.00</li>
-                                                <li><span>Goal:</span> $8,000.00</li>
+                                                <li><span>Raised:</span> ₹7,000.00</li>
+                                                <li><span>Goal:</span> ₹8,000.00</li>
                                             </ul>
                                         </div>
                                         <div className="case-btn">

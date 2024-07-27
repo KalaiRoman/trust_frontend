@@ -12,6 +12,9 @@ const Header = () => {
         e.preventDefault()
      }
 
+     const path=window.location.pathname;
+
+
     return(	
 	<div className="middle-header header-style-3">
         <HeaderTopbar/>
@@ -26,36 +29,36 @@ const Header = () => {
                 <div className="col-lg-8 d-lg-block d-none">
                     <nav>
                         <ul>
-                            <li><Link className="active" to="/home" title="">Home</Link>
-                                <ul>
+                            <li><Link className={path==="/home"?"active":""} to="/home" title="">Home</Link>
+                                {/* <ul>
                                     <li><Link className="active" to="/home">Home style 1</Link></li>
                                     <li><Link to="/home2">Home style 2</Link></li>
                                     <li><Link to="/home3">Home style 3</Link></li>
-                                </ul>
+                                </ul> */}
                             </li>
-                            <li><Link to="/about" title="">About</Link></li>
+                            <li><Link className={path==="/about"?"active":""} to="/about" title="">About</Link></li>
                             <li><Link to="/case" title="">Causes</Link>
-                                <ul>
+                                {/* <ul>
                                     <li><Link to="/case" title="">Causes</Link></li>
                                     <li><Link to="/case-single" title="">Causes Single</Link></li>
-                                </ul>
+                                </ul> */}
                             </li>
-                            <li><Link to="/event" title="">Event</Link>
-                                <ul>
+                            <li><Link to="/event" className={path==="/event"?"active":""} title="">Event</Link>
+                                {/* <ul>
                                     <li><Link to="/event" title="">Event</Link></li>
                                     <li><Link to="/event-details" title="">Event Single</Link></li>
-                                </ul>
+                                </ul> */}
                             </li>
-                            <li><Link to="/home" title="">Pages</Link>
+                            {/* <li><Link to="/home" title="">Pages</Link>
                                 <ul>
                                     <li><Link to="/about" title="">About</Link></li>
                                     <li><Link to="/donate" title="">Donate</Link></li>
                                     <li><Link to="/volunteer" title="">Volunteer</Link></li>
                                     <li><Link to="/404" title="">Error 404</Link></li>
                                 </ul>
-                            </li>
-                            <li><Link to="/blog">Blog</Link>
-                                <ul>
+                            </li> */}
+                            <li><Link to="/blog" className={path==="/blog"?"active":""}>Blog</Link>
+                                {/* <ul>
                                     <li><Link to="/blog">Blog</Link></li>
                                     <li><Link to="/blog-left">Blog Left sidebar</Link></li>
                                     <li><Link to="/blog-fullwidth">Blog full width</Link></li>
@@ -66,9 +69,9 @@ const Header = () => {
                                             <li><Link to="/blog-details-fullwidth" title="">Blog single full width</Link></li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </li>
-                            <li><Link to="/contact" title="">Contact</Link></li>
+                            <li><Link to="/contact"  className={path==="/contact"?"active":""} title="">Contact</Link></li>
                         </ul>
                     </nav>
                 </div>
@@ -96,7 +99,7 @@ const Header = () => {
                                             </div>
                                             <div className="mini-cart-item-des">
                                                 <Link to="/home">Hoodi with zipper</Link>
-                                                <span className="mini-cart-item-price">$20.15</span>
+                                                <span className="mini-cart-item-price">₹20.15</span>
                                                 <span className="mini-cart-item-quantity">x 1</span>
                                             </div>
                                         </div>
@@ -106,13 +109,13 @@ const Header = () => {
                                             </div>
                                             <div className="mini-cart-item-des">
                                                 <Link to="/home">Ninja T-shirt</Link>
-                                                <span className="mini-cart-item-price">$13.25</span>
+                                                <span className="mini-cart-item-price">₹13.25</span>
                                                 <span className="mini-cart-item-quantity">x 2</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="mini-cart-action clearfix">
-                                        <span className="mini-checkout-price">$215.14</span>
+                                        <span className="mini-checkout-price">₹215.14</span>
                                         <Link to="/home" className="view-cart-btn theme-btn">View Cart</Link>
                                     </div>
                                 </div> */}
