@@ -81,7 +81,6 @@ const Donate = (props) => {
                 setLoading(true);
                 CreatePayment(payment_values)
                     .then((res) => {
-                        console.log(res,'res')
                         const data = res;
                         const user_payment_id = data.user_payment_id;
                         const options = {
@@ -163,9 +162,16 @@ const Donate = (props) => {
                                         <button
                                             className="theme-btn"
                                             type="button"
-                                            onClick={()=>{handleShow()
-
-                                                setAddressid1("");
+                                            onClick={()=>{
+                                                if(token)
+                                                {
+                                                    handleShow()
+                                                    setAddressid1("");   
+                                                }
+                                                else{
+                                                    LoginCheck()
+                                                }
+                                            
                                             }}
                                         >
                                             Add Address +
@@ -178,12 +184,13 @@ const Donate = (props) => {
                                         show={show}
                                         getAddress={getAddress}
                                         id={addressid1}
+                                      
                                     />
                                 </div>
                                 <div>
                                     {addresss && addresss?.map((item,index)=>{
                                         return(
-                                            <div className={`₹{addressid==item?._id?"active-card":"card"} p-3 rounded cursor-pointer`} onClick={()=>setAddressid(item?._id)} key={index}>
+                                            <div className={`${addressid==item?._id?"active-card":"card"} p-3 rounded cursor-pointer`} onClick={()=>setAddressid(item?._id)} key={index}>
                                                 <div>
                                                     {item?.username}
                                                 </div>

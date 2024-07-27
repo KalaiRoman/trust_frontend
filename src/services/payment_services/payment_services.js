@@ -4,7 +4,7 @@ import instanceBaseurl from './../../config/BaseUrl';
 export async function CreatePayment(datas){
 
     try {
-        const response=await instanceBaseurl.post(`₹{AllApis?.payment_method}`,datas);
+        const response=await instanceBaseurl.post(`${AllApis?.payment_method}`,datas);
        if(response)
         {
             return response?.data;
@@ -18,7 +18,7 @@ export async function CreatePayment(datas){
 export async function GetPayment(){
 
     try {
-        const response=await instanceBaseurl.get(`₹{AllApis?.allpayments_api}`);
+        const response=await instanceBaseurl.get(`${AllApis?.allpayments_api}`);
        if(response)
         {
             return{

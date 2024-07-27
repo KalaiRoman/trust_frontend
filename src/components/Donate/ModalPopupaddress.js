@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { ToastError, ToastSuccess } from '../../config/ToastModalMessage';
 import { createAddressService, singleAddress, updateAddress } from '../../services/address_services/address_services';
 
-function ModalPopupaddress({ show, handleClose,getAddress,id }) {
+function ModalPopupaddress({ show, handleClose, getAddress, id,token,LoginCheck }) {
   const [users, setUsers] = useState({
     username: "",
     contactno: "",
@@ -17,93 +17,83 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
     setUsers({ ...users, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (username && contactno && alternateno && address) {
-      const contactNumberCheck = /^\d{10}₹/;
+      const contactNumberCheck = /^\d{10}$/;
 
       if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
-        const data = {
-          username,
-          contactno,
-          alternateno,
-          address,
-        };
+        const data = { username, contactno, alternateno, address };
 
-        const {status}=await createAddressService(data);
-        if(status)
-          {
+        console.log(data,"data")
+
+        try {
+          const { status } = await createAddressService(data);
+          if (status) {
             ToastSuccess("Created Address");
             handleClose();
             getAddress();
           }
+        } catch (error) {
+          ToastError("Failed to create address");
+        }
       } else {
-        ToastError("Please Enter Valid Mobile No");
+        ToastError("Please enter valid mobile numbers");
       }
     } else {
-      ToastError("Please Enter All Fields");
+      ToastError("Please enter all fields");
     }
   };
 
-  const getSingleAddress=async()=>{
-    try {
-      if(id)
-        {
-          const {status,data}=await singleAddress(id);
-          if(status)
-            {
-              setUsers(data);
-            }
+  const getSingleAddress = async () => {
+    if (id) {
+      try {
+        const { status, data } = await singleAddress(id);
+        if (status) {
+          setUsers(data);
         }
-    } catch (error) {
-    
+      } catch (error) {
+        ToastError("Failed to fetch address");
+      }
     }
-  }
+  };
 
-  const handleUpdate=async(e)=>{
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     if (username && contactno && alternateno && address) {
-      const contactNumberCheck = /^\d{10}₹/;
+      const contactNumberCheck = /^\d{10}$/;
 
       if (contactNumberCheck.test(contactno) && contactNumberCheck.test(alternateno)) {
-        const data = {
-          username,
-          contactno,
-          alternateno,
-          address,
-        };
+        const data = { username, contactno, alternateno, address };
 
-        const {status}=await updateAddress(id,data);
-        if(status)
-          {
+        try {
+          const { status } = await updateAddress(id, data);
+          if (status) {
             ToastSuccess("Updated Address");
             handleClose();
             getAddress();
           }
+        } catch (error) {
+          ToastError("Failed to update address");
+        }
       } else {
-        ToastError("Please Enter Valid Mobile No");
+        ToastError("Please enter valid mobile numbers");
       }
     } else {
-      ToastError("Please Enter All Fields");
+      ToastError("Please enter all fields");
     }
-  }
+  };
 
+  useEffect(() => {
+    if (id) {
+      getSingleAddress();
+    } else {
+      setUsers({ username: "", contactno: "", alternateno: "", address: "" });
+    }
+  }, [id]);
 
-  useEffect(()=>{
-    if(id)
-      {
-        getSingleAddress();
-
-      }
-      else{
-        setUsers({  username: "",
-          contactno: "",
-          alternateno: "",
-          address: "",});
-      }
-  },[id])
   return (
     <div>
       <Modal
@@ -128,7 +118,6 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
                   name="username"
                   value={username}
                   onChange={handleChange}
-                  id="fname"
                   placeholder="First Name"
                 />
               </div>
@@ -143,7 +132,6 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
                   value={contactno}
                   onChange={handleChange}
                   name="contactno"
-                  id="contactno"
                   placeholder="Contact No"
                 />
               </div>
@@ -158,7 +146,7 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
                   placeholder="Contact No"
                 />
               </div>
-              <div className='col-lg-12 col-12 from-group mt-3 mb-4'>
+              <div className='col-lg-12 col-12 form-group mt-3 mb-4'>
                 <label>Address</label>
                 <textarea
                   className="form-control"
@@ -172,7 +160,9 @@ function ModalPopupaddress({ show, handleClose,getAddress,id }) {
             </div>
 
             <div className='mt-2 mb-4'>
-              <button className='theme-btn' onClick={id?handleUpdate:handleSubmit}>{id?"Update Address":"Create Address"}</button>
+              <button className='theme-btn' onClick={id ? handleUpdate : handleSubmit}>
+                {id ? "Update Address" : "Create Address"}
+              </button>
             </div>
           </div>
         </Modal.Body>

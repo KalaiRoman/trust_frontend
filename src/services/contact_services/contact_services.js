@@ -5,7 +5,7 @@ import instanceBaseurl from './../../config/BaseUrl';
 export async function createContact(datas){
 
     try {
-        const response=await instanceBaseurl.post(`₹{AllApis?.contact_api}`,datas);
+        const response=await instanceBaseurl.post(`${AllApis?.contact_api}`,datas);
        if(response)
         {
             return response?.data;

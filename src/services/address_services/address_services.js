@@ -5,7 +5,7 @@ import instanceBaseurl from './../../config/BaseUrl';
 export async function createAddressService(datas){
 
     try {
-        const response=await instanceBaseurl.post(`₹{AllApis?.address_create}`,datas);
+        const response=await instanceBaseurl.post(`${AllApis?.address_create}`,datas);
         const {status,message,data}=response?.data;
         if(status)
             {
@@ -21,7 +21,7 @@ export async function createAddressService(datas){
 export async function getAllAddress(){
 
     try {
-        const response=await instanceBaseurl.get(`₹{AllApis?.getall_address}`,);
+        const response=await instanceBaseurl.get(`${AllApis?.getall_address}`,);
         const {status,message,data}=response?.data;
         if(status)
             {
@@ -36,7 +36,7 @@ export async function getAllAddress(){
 export async function singleAddress(id){
 
     try {
-        const response=await instanceBaseurl.get(`₹{AllApis?.address_single}/₹{id}`,);
+        const response=await instanceBaseurl.get(`${AllApis?.address_single}/${id}`,);
         const {status,data}=response?.data;
         if(status)
             {
@@ -52,7 +52,7 @@ export async function singleAddress(id){
 export async function updateAddress(id,datas){
 
     try {
-        const response=await instanceBaseurl.put(`₹{AllApis?.address_update}/₹{id}`,datas);
+        const response=await instanceBaseurl.put(`${AllApis?.address_update}/${id}`,datas);
         const {status,message,data}=response?.data;
         if(status)
             {
