@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
     <Toaster position="top-center"
-  reverseOrder={false}/>
+  reverseOrder={false} style={{zIndex:"98989898989"}}/>
     <App />
     
     </>

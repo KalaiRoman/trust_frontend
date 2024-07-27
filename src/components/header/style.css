@@ -9,6 +9,7 @@
 }
 .middle-header {
     box-shadow: 0px 5px 14.25px 0.75px rgba(12, 105, 184, 0.1);
+	z-index:0 !important;
 }
 /* Navigation */
 
@@ -188,7 +189,7 @@ header.fixed .header-content {
   .header-style-2, .header-style-3 {
 	box-shadow: 0px 5px 14.25px 0.75px rgba(12, 105, 184, 0.1);
 	position: relative;
-	z-index: 9999;
+	z-index: 9 !important;
 }
   
   @media (max-width: 991px) {
