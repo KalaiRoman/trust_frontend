@@ -36,45 +36,52 @@ const SignUpPage = (props) => {
             {
 
                 const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const passwordRegx=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
                 const email = value.email;
                 if (regex.test(email)) {
-
-                    if(value?.password===value?.confirm_password)
-                        {
-                            const datas={
-                                "userName":value?.userName,
-                                "password":value?.password,
-                                "email":value?.email,
-                                "mobileNo":value?.mobileNo
+                    if(passwordRegx.test(value?.password) && passwordRegx.test(value?.confirm_password))
+                    {
+                        if(value?.password===value?.confirm_password)
+                            {
+                                const datas={
+                                    "userName":value?.userName,
+                                    "password":value?.password,
+                                    "email":value?.email,
+                                    "mobileNo":value?.mobileNo
+                                }
+                                const {status,message,data}=await registerService(datas);
+    
+                                if(status)
+                                    {
+    ToastSuccess("Otp Send Check Your Mail!");
+    
+    setTimeout(() => {
+    
+        console.log(data,'data?._id')
+        push("/otp",{state:{userId:data?._id}});
+                                        setValue({
+                                            email: '',
+                                            userName: '',
+                                            password: '',
+                                            confirm_password: '',
+                                            mobileNo:''
+                                        });
+    }, 1000);
+                                        
+                                    }
+                                    else{
+                                        ToastError(message);
+                                    }
+                              
+                            } 
+                            else{
+                                ToastError("Confirm Password Not Matched")
                             }
-                            const {status,message,data}=await registerService(datas);
-
-                            if(status)
-                                {
-ToastSuccess("Otp Send Check Your Mail!");
-
-setTimeout(() => {
-
-    console.log(data,'data?._id')
-    push("/otp",{state:{userId:data?._id}});
-                                    setValue({
-                                        email: '',
-                                        userName: '',
-                                        password: '',
-                                        confirm_password: '',
-                                        mobileNo:''
-                                    });
-}, 1000);
-                                    
-                                }
-                                else{
-                                    ToastError(message);
-                                }
-                          
-                        } 
-                        else{
-                            ToastError("Confirm Password Not Matched")
-                        }
+                    }
+                    else{
+ToastError("password should contain at least a symbol, upper and lower case letters and a number")
+                    }
+                  
                   
                 }
                 else{

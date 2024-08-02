@@ -102,7 +102,7 @@ const Donate = (props) => {
                                 ToastSuccess("Payment Paid Successfully");
                                 setTimeout(() => {
                                     setLoading(false)
-                                    window.location.assign("/profile");
+                                    window.location.assign(`/profile?Name=payment`);
                                 }, 800);
                             },
                             modal: {

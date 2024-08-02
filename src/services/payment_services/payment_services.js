@@ -32,3 +32,44 @@ export async function GetPayment(){
         
     }
 }
+
+
+// create invoice
+
+export async function createInvoice(data){
+
+    try {
+        const response=await instanceBaseurl.post(`${AllApis?.invoice_create_api}`,data);
+       if(response)
+        {
+            return{
+                status:response?.data?.status,
+                data:response?.data?.data,
+                message:response?.data?.message
+            }
+        }
+    } catch (error) {
+            return {message:error?.response?.data?.message,status:error?.status};
+        
+    }
+}
+
+// get invoice data
+
+export async function GetInvoice(data){
+
+    try {
+        const response=await instanceBaseurl.get(`${AllApis?.invoice_get_api}`);
+       if(response)
+        {
+            return{
+                status:response?.data?.status,
+                data:response?.data?.data,
+                message:response?.data?.message
+            }
+        }
+    } catch (error) {
+            return {message:error?.response?.data?.message,status:error?.status};
+        
+    }
+}

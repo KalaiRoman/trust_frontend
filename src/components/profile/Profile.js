@@ -7,12 +7,11 @@ import Modal from 'react-bootstrap/Modal';
 import { ToastSuccess } from './../../config/ToastModalMessage';
 import { getProfileUserData, updateProfileservice } from '../../services/auth_services/auth_services';
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 function Profile() {
   const {token,userdata,removeToken,userdataPayment}=TokenCheck();
-
   const history=useNavigate();
-  console.log(userdataPayment,'userdataPayment')
+  const [Name,setName]=useSearchParams()
   const [activetab,setActiveTab]=useState("profile");
   const [user,setUser]=useState({
     userName:"",
@@ -66,6 +65,17 @@ handleClose3();
       
     }
   }
+
+
+  useEffect(()=>{
+if(Name.get("Name"))
+{
+  setActiveTab(Name.get("Name"))
+}
+  },[Name.get("Name")])
+  const handleChangePathTab=(params)=>{
+history(`/profile?Name=${params}`)
+  }
   return (
     <Fragment>
       <Header/>
@@ -73,10 +83,10 @@ handleClose3();
         
         <div className='mt-5 d-flex gap-5 buttons'>
           <div>
-            <buttton className={activetab=="profile"?"theme-btn":"theme-btn-inactive"} onClick={()=>setActiveTab("profile")}>Profile</buttton>
+            <buttton className={activetab=="profile"?"theme-btn":"theme-btn-inactive"} onClick={()=>handleChangePathTab("profile")}>Profile</buttton>
           </div>
           <div>
-            <buttton className={activetab=="payment"?"theme-btn":"theme-btn-inactive"} onClick={()=>setActiveTab("payment")}>Payment You</buttton>
+            <buttton className={activetab=="payment"?"theme-btn":"theme-btn-inactive"} onClick={()=>handleChangePathTab("payment")}>Payment You</buttton>
           </div>
         </div>
         <div>
@@ -135,10 +145,14 @@ handleClose3();
       </>}
 
       {activetab==="payment" && <>
+
+      <div>
+        {userdataPayment?.length===0 && <div className=' fw-bold fs-3 mt-5 w-100 h-[100vh] d-flex align-items-center justify-content-center'>Sorry!, You have not received any payment; this pure-hearted trust is unpaid.</div>}
+      </div>
       
       {userdataPayment?.map((item,index)=>{
         return(
-          <div className='card p-4'>
+          <div className='card p-4' key={index}>
             
             <div className='d-flex justify-content-between align-items-center'>
               <div>

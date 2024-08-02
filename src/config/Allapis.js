@@ -14,4 +14,7 @@ export const AllApis={
     address_update:"address/update",
     profile_update:"auth/update",
     allpayments_api:"payment/get",
+    invoice_create_api:"payment/invoice/create",
+    invoice_get_api:"payment/invoice/get"
+
 }
