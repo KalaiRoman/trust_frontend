@@ -105,3 +105,17 @@
 .invoice-total {
   float: right;
 }
+
+
+.feedback
+{
+  width:100%;
+  /* margin-left:20px; */
+  padding:10px 10px;
+  margin:0px;
+  border-radius:10px;
+  outline:none;
+  border:none;
+  border:1px solid #08cc7f;
+  cursor:pointer;
+}

@@ -6,6 +6,7 @@ import moment from 'moment';
 import Header from '../../../header';
 import { createInvoice, GetInvoice } from '../../../../services/payment_services/payment_services';
 import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 function Invoice() {
   const {id}=useParams();
   const {token,userdata,removeToken,userdataPayment}=TokenCheck();
@@ -13,47 +14,44 @@ function Invoice() {
 
 
   const createPdf = (params) => {
-
-    // const data={
-    //     name:userdata?.email,
-    //     items:userdata?.email,
-    //     total :100
-    // }
-    // createInvoice(data)
-    // //   .then(() => GetInvoice({ responseType: 'blob' }))
-    //   .then((res) => {
-    //     console.log(res,"kalaisurya")
-    //     // const pdfBlob = new Blob([res.data.filename], { type: 'application/pdf' });
-
-    //     // const pdfUrl = URL.createObjectURL(pdfBlob);
-    //     // const link = document.createElement('a');
-    //     // link.href = pdfUrl;
-    //     // link.download = 'invoice.pdf';
-    //     // document.body.appendChild(link);
-    //     // link.click();
-    //     // document.body.removeChild(link);
-    //     const pdfUrl = `/Invoice/${res.data}`;
-    //     const a = document.createElement('a');
-    //     a.href = pdfUrl;
-    //     a.download = 'invoice.pdf';
-    //     a.click();
-    //   });
+        // const doc = new jsPDF();
+        // doc.text("Hello world!", 10, 10);
+        // const jsonData = {
+        //   title: userdata?.email,
+        //   amount:SinglePayment?.amount,
+        //   description: "This is an example of generating a PDF in React."
+        // };
+        // doc.text(jsonData.title, 10, 20);
+        // doc.text(jsonData.amount, 10, 30);
+        // doc.text(jsonData.description, 10, 40);
+        // doc.save("invoice.pdf");
 
         const doc = new jsPDF();
-    
-        doc.text("Hello world!", 10, 10);
-    
+        doc.setFontSize(20);
+        doc.text("Invoice", 14, 22);
+
+        doc.text("Pure Heart Trust", 14, 32);
+        doc.setFontSize(12);
         const jsonData = {
-          title: userdata?.email,
-          amount:SinglePayment?.amount,
+        Sno:"1",
+          title: userdata?.userName,
+          orderId:SinglePayment?.orderId,
+          amount: `${SinglePayment?.amount}`,
           description: "This is an example of generating a PDF in React."
         };
-    
-        doc.text(jsonData.title, 10, 20);
-        doc.text(jsonData.amount, 10, 30);
-        doc.text(jsonData.description, 10, 40);
-    
-        doc.save("sample.pdf");
+      
+        doc.text(`userName: ${jsonData.title}`, 14, 40);
+        const tableColumn = ["S.No","OrderId","Amount"];
+        const tableRows = [];
+        const rowData = [jsonData.Sno, jsonData.orderId,jsonData.amount];
+        tableRows.push(rowData);
+              doc.autoTable({
+          head: [tableColumn],
+          body: tableRows,
+          startY: 50,
+        });
+        doc.text(`Total:${jsonData.amount}`, 14, doc.autoTable.previous.finalY + 10);
+        doc.save("invoice.pdf");
       
   };
   return (

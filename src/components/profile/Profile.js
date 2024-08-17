@@ -4,10 +4,12 @@ import TextField from "@mui/material/TextField";
 import './profile.css';
 import TokenCheck from '../../middleware/TokenCheck';
 import Modal from 'react-bootstrap/Modal';
-import { ToastSuccess } from './../../config/ToastModalMessage';
+import { ToastError, ToastSuccess } from './../../config/ToastModalMessage';
 import { getProfileUserData, updateProfileservice } from '../../services/auth_services/auth_services';
 import moment from 'moment';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Rating } from 'react-simple-star-rating'
+import { CreateReview, GetReview } from '../../services/review_services/Review_services';
 function Profile() {
   const {token,userdata,removeToken,userdataPayment}=TokenCheck();
   const history=useNavigate();
@@ -21,8 +23,25 @@ function Profile() {
 const handleChange=(e)=>{
   setUser({...user,[e.target.name]:e.target.value});
 }
+const [rating, setRating] = useState(0)
+const [ratingloading, setRatingLoading] = useState(false)
+
+const [reviewdes,setReviewDes]=useState("");
+  const handleRating = (rate) => {
+    setRating(rate)
+  }
+  const onPointerEnter = () => {}
+  const onPointerLeave = () => {}
+  const onPointerMove = (value, index) => {}
+
   useEffect(()=>{
 setUser(userdata);
+GetReview().then((res)=>{
+setRating(res?.data[0]?.rating)
+setReviewDes(res?.data[0]?.description)
+}).catch((err)=>{
+  console.log(err)
+})
   },[userdata]);
   const [show3, setShow3] = useState(false);
   const [loading,setLoading]=useState(false);
@@ -65,8 +84,6 @@ handleClose3();
       
     }
   }
-
-
   useEffect(()=>{
 if(Name.get("Name"))
 {
@@ -75,6 +92,34 @@ if(Name.get("Name"))
   },[Name.get("Name")])
   const handleChangePathTab=(params)=>{
 history(`/profile?Name=${params}`)
+  }
+  const handleReviewSubmit=async()=>{
+    setRatingLoading(true)
+try {
+  if(!reviewdes || !rating)
+  {
+    ToastError("Please Enter All Filed in Rating")
+  }
+  else{
+    if(reviewdes && rating)
+    {
+      const data={
+        description:reviewdes,
+        rating:rating
+      }
+      const response=await CreateReview(data);
+      if(response)
+      {
+        ToastSuccess(userdata?.reviewStatus?"Rating Uptaed Successfully":"Rating Submitted Successfully")
+        setTimeout(() => {
+          setRatingLoading(false)
+        }, 800);
+      }
+    }
+  }
+} catch (error) {
+  setRatingLoading(false);
+}
   }
   return (
     <Fragment>
@@ -87,6 +132,9 @@ history(`/profile?Name=${params}`)
           </div>
           <div>
             <buttton className={activetab=="payment"?"theme-btn":"theme-btn-inactive"} onClick={()=>handleChangePathTab("payment")}>Payment You</buttton>
+          </div>
+          <div>
+            <buttton className={activetab=="review"?"theme-btn":"theme-btn-inactive"} onClick={()=>handleChangePathTab("review")}>Review</buttton>
           </div>
         </div>
         <div>
@@ -145,7 +193,6 @@ history(`/profile?Name=${params}`)
       </>}
 
       {activetab==="payment" && <>
-
       <div>
         {userdataPayment?.length===0 && <div className=' fw-bold fs-3 mt-5 w-100 h-[100vh] d-flex align-items-center justify-content-center'>Sorry!, You have not received any payment; this pure-hearted trust is unpaid.</div>}
       </div>
@@ -174,8 +221,58 @@ history(`/profile?Name=${params}`)
         )
       })}
       </>}
+     
+     {activetab==="review" && <>
+     
+      <div className='mb-5'>
+      
+      <div className='card p-3'>
+        <div className='mb-3'>
+          <h2>Feed Back</h2>
+        </div>
+        <div className='mb-3'>
+        <>Rating</>
+        </div>
+      <div className='ms-3'>
+      <Rating
+        onClick={handleRating}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
+        onPointerMove={onPointerMove}
+        initialValue={rating}
+      />
+      </div>
+      <div className='mt-4 mb-3'>
+        Description
       </div>
 
+      <div>
+      
+<textarea id="w3review" 
+        className='feedback'
+name="w3review" rows="4" cols="50"
+ placeholder='Please Enter Your Feed Back'
+ value={reviewdes}
+ onChange={(e)=>setReviewDes(e.target.value)}
+>
+
+</textarea>
+      </div>
+      <div className='mt-4 mb-3'>
+        <button className="theme-btn submit-btn" onClick={handleReviewSubmit}>
+          {ratingloading?"Loading...":<>
+            {userdata?.reviewStatus?"Updated Rating":"Submit"}
+          </>}
+          </button>
+      </div>
+      </div>
+   
+      </div>
+     </>}
+
+      </div>
+
+     
       <Modal show={show3} onHide={handleClose3} backdrop="static" keyboard={false} centered size='lg'>
         <Modal.Header closeButton>
           <Modal.Title> <div className='d-flex gap-3 align-items-center'>

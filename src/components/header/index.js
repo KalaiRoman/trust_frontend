@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../../images/logo.png'
+
 import {Link}  from 'react-router-dom'
 import HeaderTopbar from '../HeaderTopbar'
 import MobileMenu from '../../components/MobileMenu'
@@ -23,7 +24,8 @@ const Header = () => {
             <div className="row">
                 <div className="col-lg-3 col-md-4 col-sm-4 col-4">
                     <div className="logo">
-                        <Link to="/home" title=""><img src={Logo} alt=""/></Link>
+                        {/* <Link to="/home" title=""><img src={Logo} alt=""/></Link> */}
+                        PureHeartTrust
                     </div>
                 </div>
                 <div className="col-lg-8 d-lg-block d-none">

@@ -84,7 +84,7 @@ const Donate = (props) => {
                         const data = res;
                         const user_payment_id = data.user_payment_id;
                         const options = {
-                            key: 'rzp_test_EM3reg1Z7aUAw6',
+                            key: 'rzp_test_a9CrC3a6yr7YSD',
                             currency: 'INR',
                             amount: data.amount,
                             order_id: data.order_id,
@@ -213,8 +213,8 @@ const Donate = (props) => {
                                 <div className="wpo-payment-area">
                                     <div className="row">
                                         <div className="col-12">
-                                            <div className="wpo-payment-option" id="open4">
-                                                <div className="wpo-payment-select">
+                                            <div class="radio-wrapper-14">
+                                                {/* <div className="wpo-payment-select">
                                                     <ul>
                                                         <li className="addToggle">
                                                             <input
@@ -235,11 +235,40 @@ const Donate = (props) => {
                                                                 onChange={(e)=>setPaymentType("others")}
 
                                                             />
-                                                            <label htmlFor="remove">Others</label>
+                                                            <label htmlFor="remove">Address</label>
                                                         </li>
                                                     </ul>
-                                                </div>
-                                              
+                                                </div> */}
+
+<div className="containers">
+  <div className="cards">
+    <input type="radio"  id="card1" 
+     name="payment"
+     value="onlypayment"
+     onChange={(e)=>setPaymentType("onlypayment")}
+    />
+    <label htmlFor="card1">
+      {/* <img src="https://img.freepik.com/free-vector/football-abstract-concept-vector-illustration-soccer-team-tournament-football-club-fan-sports-equipment-world-championship-betting-watching-live-premiere-league-cup-abstract-metaphor_335657-4284.jpg?w=826&t=st=1684139209~exp=1684139809~hmac=34ea7e1ed8bb89f3ddd7171fc0239b779a8111e2d62fff0bba3cb29f542b8f73" /> */}
+      <h2>Payment Only</h2>
+    </label>
+  </div>
+  <div className="cards">
+    <input type="radio" id="card2" 
+    name="payment"
+    value="others"
+    onChange={(e)=>setPaymentType("others")}
+    />
+    <label htmlFor="card2">
+      {/* <img src="https://img.freepik.com/free-vector/basketball-abstract-concept-vector-illustration-championship-league-game-player-basket-net-tournament-winner-professional-college-sports-team-play-ball-american-arena-abstract-metaphor_335657-4270.jpg?w=826&t=st=1684139349~exp=1684139949~hmac=087c572a911a7a79c71ac469ed750485b438ffcb5d5b1eebd0d144bd378a4220" /> */}
+      <h2>Address</h2>
+    </label>
+  </div>
+  
+</div>
+
+
+
+               
                                             </div>
                                         </div>
                                     </div>

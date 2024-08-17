@@ -17,3 +17,92 @@
   top: 4%;
   cursor: pointer;
 }
+
+.containers
+{
+	height:100%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	gap:15px;
+}
+.cards
+{
+    height: 100px;
+    width: 290px;
+    position: relative;
+    
+}
+input[type="radio"]
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 7px 7px 15px rgba(2,28,53,0.08);
+    cursor: pointer;
+    outline: none;
+		transition:transform 0.4s ease-in-out;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+input[type="radio"]::before
+{
+	content:"";
+	position:absolute;
+	width:22px;
+	height:22px;
+	background-color: #f9fafd;
+  border: 1px solid #e2e6f3;
+  border-radius: 50%;
+  top: 35px;
+  right: 20px;
+}
+input[type="radio"]::after
+{
+	content:"";
+	position:absolute;
+	width:13px;
+	height:13px;
+	background-color:transparent;
+	border-radius:50%;
+	top:39.5px;
+	right:24.5px;
+}
+label
+{
+	position:absolute;
+	margin:15px;
+	cursor:pointer;
+}
+
+h2
+{
+	font-size: 20px;
+	font-weight:300;
+	color: #7b7b93;
+  display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:20px;
+}
+img 
+{
+	display:block;
+  width:80%;
+}
+input[type="radio"]:hover
+{
+    transform: scale(1.05);
+}
+input[type="radio"]:checked{
+    border: 1px solid #478bfb;
+}
+input[type="radio"]:checked:after{
+    background-color: #478bfb;
+}

@@ -15,6 +15,8 @@ export const AllApis={
     profile_update:"auth/update",
     allpayments_api:"payment/get",
     invoice_create_api:"payment/invoice/create",
-    invoice_get_api:"payment/invoice/get"
+    invoice_get_api:"payment/invoice/get",
+    review_create_api:"review/create",
+    review_get_api:"review/get"
 
 }
